@@ -1,0 +1,12 @@
+version: '2'
+services:
+  rancherserver:
+    image: "rancher/server"
+  prox_rancherserver:
+    depends_on:
+      - rancherserver
+    build: .
+    volumes:
+      - /etc/nginx/certs
+    ports:
+      - "9383:9383"
